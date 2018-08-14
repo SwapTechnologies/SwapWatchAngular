@@ -1,0 +1,71 @@
+.Header {
+  padding: 15px 20px;
+  height: 30px;
+  background-color: white;
+}
+
+.LogoContainer {
+  display: inline-flex;
+  height: 30px;
+  align-items: center;
+  float: left;
+
+}
+
+.LogoImage {
+  height: 24px;
+  margin-right: 10px;
+}
+
+.LogoText {
+  float: left;
+  color: black;
+  font-weight: bold;
+  font-size: 1em;
+  letter-spacing: 2px;
+  line-height: 30px;
+  margin-top: 0;
+}
+
+.SemiTransparent {
+  opacity: 0.5;
+}
+
+.MarginLeft5 {
+  margin-left: 5px;
+}
+
+.MarginLeft10 {
+  margin-left: 10px;
+}
+
+.Link {
+  float: right;
+  color: #008eff;
+  font-size: 0.75em;
+  letter-spacing: 2px;
+  margin-top: 5px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+@media only screen and (min-width: 321px) {
+  .LogoText {
+    font-size: 1.25em;
+    letter-spacing: 5px;
+  }
+}
+
+@media only screen and (min-width: 383px) {
+  .Link {
+    line-height: 30px;
+    margin-top: 0px;
+  }
+}
+
+@media only screen and (min-width: 500px) {
+  .LogoImage {
+    height: 32px;
+    margin-right: 20px;
+  }
+}

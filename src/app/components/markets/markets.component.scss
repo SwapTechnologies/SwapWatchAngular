@@ -1,0 +1,79 @@
+// :local(.Outer) {
+//   composes: PageFrame from global;
+// }
+
+// :local(.PageContainer) {
+//   composes: Container from global;
+//   overflow: hidden;
+// }
+
+.TableMessageContainer {
+  text-align: center;
+  /* font-weight: semi-bold; */
+  font-size: 1.5em;
+  margin-top: 100px;
+}
+
+.TableContainer {
+  display: flex;
+  height: 95%;
+  width: 100%;
+  /* margin-top: 10px; */
+}
+
+.TabsBarContainer {
+  display: flex;
+  float: left;
+  width: 80%;
+  padding-top: 5px;
+}
+
+.MenuContainer {
+  display: flex;
+  float: right;
+  padding-top: 5px;
+  margin-right: 10px;
+  margin: auto;
+
+}
+.StatsButton {
+  display: none;
+}
+
+.AirSwapButton {
+  display: none !important;
+  margin-left: 10px !important;
+  margin-top: 13px !important;
+  margin-right: 10px !important;
+  line-height: 1em !important;
+  font-size: x-small !important;
+  min-width: 50px !important;
+  min-height: 10px !important;
+}
+
+@media only screen and (min-width: 600px) {
+  .AutoCompleteContainer {
+      float: left;
+      width: 40%;
+  }
+
+  .AutoCompleteContainerRight {
+      float: right;
+      width: 40%;
+  }
+
+  .StatsButton {
+      display: block;
+      margin:0 40% 0 40%;
+      text-align: center;
+  }
+
+  .AirSwapButton {
+      display: inline-block !important;
+  }
+
+  .TabsBarContainer {
+      padding-top: 10px;
+      padding-bottom: 10px;
+  }
+}

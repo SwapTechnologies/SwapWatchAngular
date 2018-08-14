@@ -1,0 +1,22 @@
+<header class='Header'>
+  <div class='Logo'>
+    <div class='LogoContainer'>
+      <img
+      class='LogoImage'
+      src='assets/images/SwapWatchLogo-small.png'
+      alt='Logo' />
+    </div>
+    <p class='LogoText'>
+      SWAP
+    </p>
+    <p [ngClass]="['LogoText', 'SemiTransparent', 'MarginLeft5']">
+      WATCH
+    </p>
+    <div [ngClass]="['Link', 'MarginLeft10']" to="/Donate">
+      DONATE
+    </div>
+    <div class='Link' to="/About">
+      ABOUT
+    </div>
+  </div>
+</header>
