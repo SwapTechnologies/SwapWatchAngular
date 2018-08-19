@@ -4,7 +4,7 @@ import { environment } from '../../environments/environment';
 import { removeLeadingZeros } from '../utils/formatting';
 
 import * as d3 from 'd3';
-import { timeParse } from "d3-time-format";
+import { timeParse } from 'd3-time-format';
 
 @Injectable({
   providedIn: 'root'
@@ -167,7 +167,7 @@ export class TradesService {
     allDates.forEach(d => {
       const tempObject = {};
       const filteredData = copyData.filter(e => e.timestamp === d);
-      tempObject['date'] = parseDate(d);
+      tempObject['date'] = parseDate(JSON.stringify(d));
       tempObject['volume'] = d3.sum(filteredData, e => e.volume);
       tempObject['open'] = filteredData[0].price;
       tempObject['close'] = filteredData[filteredData.length - 1].price;
