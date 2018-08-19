@@ -26,3 +26,33 @@
   float: right;
   font-weight: bold;
 }
+
+.input {
+  margin: 0;
+  font-family: 'Open Sans';
+}
+
+.underline {
+  &:after {
+    background-color: '#008eff';
+  }
+}
+
+.underlineError {
+  &:after {
+    background-color: 'red';
+  }
+}
+
+.menuItemHovered {
+  font-family: 'Open Sans';
+
+  &:hover {
+    background-color: '#008eff60',
+  }
+}
+
+.paper {
+  margin: 0;
+  font-family: '100%';
+}

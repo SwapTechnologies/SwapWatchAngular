@@ -2,30 +2,32 @@
   <div class='Outer'>
     <div>
       <div class='AutoCompleteContainer'>
-        <!-- <AutoCompleteInput placeholder="Maker Token"
+        <app-auto-complete-input
+          [data]="this.getToken1List()"
+          placeholder="Maker Token"
           displayField='name'
           imageField='logo'
           secondaryField='symbol'
-          disabled={!this.state.hasLoadedData}
-          itemSelected={this.handleToken1Selected}
-          excludeItem={this.state.selectedToken2}
-          cleared={this.handleToken1Selected}
+          disabled={{!hasLoadedData}}
+          itemSelected={{handleToken1Selected}}
+          excludeItem={{selectedToken2}}
+          cleared={{handleToken1Selected}}
           zIndex='20'>
-          {this.getToken1List()}
-        </AutoCompleteInput> -->
+        </app-auto-complete-input>
       </div>
       <div class='AutoCompleteContainerRight'>
-        <!-- <AutoCompleteInput placeholder="Taker Token"
+        <app-auto-complete-input
+          [data]="this.getToken2List()"
+          placeholder="Taker Token"
           displayField='name'
           imageField='logo'
           secondaryField='symbol'
-          disabled={!this.state.hasLoadedData}
-          excludeItem={this.state.selectedToken1}
-          itemSelected={this.handleToken2Selected}
-          cleared={this.handleToken2Selected}
+          disabled={{!hasLoadedData}}
+          excludeItem={{selectedToken1}}
+          itemSelected={{handleToken2Selected}}
+          cleared={{handleToken2Selected}}
           zIndex='10'>
-          {this.getToken2List()}
-        </AutoCompleteInput> -->
+        </app-auto-complete-input>
       </div>
       <!-- {marketplaceButtons} -->
     </div>

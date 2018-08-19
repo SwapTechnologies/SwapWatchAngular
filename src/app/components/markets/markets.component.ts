@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TradesService } from '../../services/trades.service';
+import { TokensService } from '../../services/tokens.service';
 @Component({
   selector: 'app-markets',
   templateUrl: './markets.component.html',
@@ -10,8 +11,14 @@ export class MarketsComponent implements OnInit {
   public ohlcData;
   public marketData;
 
+  public hasLoadedData;
+
+  public selectedToken1;
+  public selectedToken2;
+
   constructor(
-    public trades: TradesService
+    public trades: TradesService,
+    public tokens: TokensService
   ) { }
 
   ngOnInit() {
@@ -37,33 +44,31 @@ export class MarketsComponent implements OnInit {
     }
   }
 
-  // handleToken1Selected = (selectedToken) => {
-  //   if (!selectedToken) {
-  //     this.setState({ txList: null });
-  //   }
+  handleToken1Selected = (selectedToken) => {
+    this.selectedToken1 = selectedToken;
+    // this.setState({
+    //   txList: null,
+    //   selectedToken1: selectedToken
+    // }, () => {
+    //   if (this.state.selectedToken1 && this.state.selectedToken2) this.getTokenPairTxList();
+    //   this.checkStatus();
+    // })
+  }
 
-  //   this.setState({
-  //     txList: null,
-  //     selectedToken1: selectedToken
-  //   }, () => {
-  //     if (this.state.selectedToken1 && this.state.selectedToken2) this.getTokenPairTxList();
-  //     this.checkStatus();
-  //   })
-  // }
+  handleToken2Selected = (selectedToken) => {
+    // if (!selectedToken) {
+    //   this.txList = null;
+    // }
+    this.selectedToken2 = selectedToken;
 
-  // handleToken2Selected = (selectedToken) => {
-  //   if (!selectedToken) {
-  //     this.setState({ txList: null });
-  //   }
-
-  //   this.setState({
-  //     txList: null,
-  //     selectedToken2: selectedToken
-  //   }, () => {
-  //     if (this.state.selectedToken1 && this.state.selectedToken2) this.getTokenPairTxList();
-  //     this.checkStatus();
-  //   })
-  // }
+    // this.setState({
+    //   txList: null,
+    //   selectedToken2: selectedToken
+    // }, () => {
+    //   if (this.state.selectedToken1 && this.state.selectedToken2) this.getTokenPairTxList();
+    //   this.checkStatus();
+    // })
+  }
 
   // handleViewChange = name => event => {
   //   this.setState({ [name]: event.target.checked });
@@ -115,23 +120,25 @@ export class MarketsComponent implements OnInit {
   //   })
   // }
 
-  // getToken1List() {
-  //   if (this.state.TokenPairList &&
-  //     this.state.selectedToken2 &&
-  //     this.state.TokenPairList[this.state.selectedToken2.name])
-  //     return this.state.TokenPairList[this.state.selectedToken2.name];
-  //   else
-  //     return this.state.TokenList;
-  // }
+  getToken1List() {
+    return this.tokens.tokenList;
+    // if (this.state.TokenPairList &&
+    //   this.state.selectedToken2 &&
+    //   this.state.TokenPairList[this.state.selectedToken2.name])
+    //   return this.state.TokenPairList[this.state.selectedToken2.name];
+    // else
+    //   return this.state.TokenList;
+  }
 
-  // getToken2List() {
-  //   if (this.state.TokenPairList &&
-  //     this.state.selectedToken1 &&
-  //     this.state.TokenPairList[this.state.selectedToken1.name])
-  //     return this.state.TokenPairList[this.state.selectedToken1.name];
-  //   else
-  //     return this.state.TokenList;
-  // }
+  getToken2List() {
+    return this.tokens.tokenList;
+    // if (this.trades.trades
+    // && this.selectedToken1
+    // && this.TokenPairList[this.selectedToken1.name]) {
+    //   return this.TokenPairList[this.selectedToken1.name];
+    // } else {
+    // }
+  }
 
   // buy = () => {
   //   window.AirSwap.Trader.render({

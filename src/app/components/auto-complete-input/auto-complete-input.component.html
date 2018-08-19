@@ -1,20 +1,23 @@
-<div style='position: relative; display: inline-block; width: 100%; z-index: 10;'>
+<div [ngStyle]="applyContainerStyle()">
   <!-- {suggestedElement} -->
   <Input
-    placeholder=this.placeholder
-    class=this.props.classes.input
-    classes={{ underline: error ? this.props.classes.underlineError : this.props.classes.underline }}
-    fullWidth
-    error=this.error
-    onFocus=this.handleGotFocus
-    onBlur=this.handleLostFocus
-    onChange=this.handleInputChanged
-    onKeyDown=this.handleKeyDown
-    inputProps={{ 'aria-label': 'Description' }}
-    value=this.state.inputValue
+    placeholder={{placeholder}}
+    (keydown.tab)="handleKeyDown($event)"
+    (keydown.enter)="handleKeyDown($event)"
+    (blur)="handleLostFocus($event)"
+    (focus)="handleGotFocus($event)"
+    (change)="handleInputChanged($event)"
     type='search'
-    disabled=this.disabled
-    startAdornment=adorner>
-  </Input>
-  <!-- {popup} -->
+    disabled={{disabled}}
+    inputProps="{'aria-label': 'Description'}"
+    fullWidth
+    class='input'
+    value={{inputValue}}
+    >
 </div>
+  <!--
+
+    classes={{ underline: error ? this.props.classes.underlineError : this.props.classes.underline }}
+    error=this.error
+    startAdornment=adorner
+    -->

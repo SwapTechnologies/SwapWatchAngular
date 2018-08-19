@@ -7,6 +7,32 @@ import { Component, OnInit, Input, Output } from '@angular/core';
 })
 export class AutoCompleteInputComponent implements OnInit {
   // complete in work
+  @Input()
+  data: any[];
+
+  @Input()
+  placeholder: string;
+
+  @Input()
+  displayField: string;
+
+  @Input()
+  imageField: string;
+
+  @Input()
+  secondaryField: string;
+
+  @Input()
+  disabled: boolean;
+
+  @Input()
+  itemSelected: any;
+
+  @Input()
+  excludeItem: any;
+
+  @Input()
+  cleared: boolean;
 
   @Input()
   zIndex: number;
@@ -20,11 +46,11 @@ export class AutoCompleteInputComponent implements OnInit {
   public selectedItem;
   public displayProperty;
   public secondaryProperty;
-  public children;
 
   constructor() { }
 
   ngOnInit() {
+    console.log('data', this.data);
   }
 
   handleGotFocus(e) {
@@ -60,6 +86,7 @@ export class AutoCompleteInputComponent implements OnInit {
   }
 
   handleKeyDown(event) {
+    console.log(event);
     if (event.key === 'Tab' || event.key === 'Enter') {
       const match = this.findMatch();
 
@@ -70,7 +97,7 @@ export class AutoCompleteInputComponent implements OnInit {
   }
 
   findMatch(includeSecondary = true) {
-    return this.children.find((item) => {
+    return this.data.find((item) => {
       if (!this.inputValue) {
           return false;
       }
@@ -91,5 +118,15 @@ export class AutoCompleteInputComponent implements OnInit {
 
   getSecondaryValue = (item) => {
     return this.secondaryProperty ? item[this.secondaryProperty] : undefined;
+  }
+
+  applyContainerStyle() {
+    const style = {
+      'position': 'relative',
+      'display': 'inline-block',
+      'width': '100%',
+      'z-index': this.zIndex
+    };
+    return style;
   }
 }
